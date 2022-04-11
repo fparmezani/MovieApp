@@ -17,9 +17,9 @@ Sample preview running the app:
 <hr/>
 <img src="https://raw.githubusercontent.com/gist/fparmezani/2b479ff344f063fc3ebf98787c8d01ee/raw/8ab55ed2ddb6c1165a9627c4f28d7f26708dd1fb/movie-app.svg">
 
-# Sobre o projeto
+# About this project
 
-https://controlefinanceiroparme.herokuapp.com/
+https://movieappparme.herokuapp.com/
 
 Movie App is a small application used as a basis for external API requests[fparmezani](https://parmezani.net "Site do Fernando Parmezani").
 
