@@ -3,6 +3,7 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const API_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc&' + API_KEY;
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const searchURL = BASE_URL + '/search/movie?' + API_KEY;
+
 const genres = [
     {
         id: 28,
@@ -96,9 +97,10 @@ var nextPage = 2;
 var prevPage = 3;
 var lastUrl = '';
 var totalPages = 100;
-
 var selectedGenre = [];
+
 setGenre();
+
 function setGenre() {
     tagsEl.innerHTML = '';
     genres.forEach((genre) => {
@@ -120,7 +122,6 @@ function setGenre() {
                     selectedGenre.push(genre.id);
                 }
             }
-            console.log(selectedGenre);
             getMovies(API_URL + '&with_genres=' + encodeURI(selectedGenre.join(',')));
             highlightSelection();
         });
@@ -165,7 +166,6 @@ getMovies(API_URL);
 function getMovies(url) {
     lastUrl = url;
     fetch(url).then((res) => res.json()).then((data) => {
-        console.log(data.results);
         if (data.results.length !== 0) {
             showMovies(data.results);
             currentPage = data.page;
@@ -228,7 +228,7 @@ function showMovies(data) {
 }
 
 const overlayContent = document.getElementById('overlay-content');
-/* Open when someone clicks on the span element */
+
 function openNav(movie) {
     let id = movie.id;
     fetch(BASE_URL + '/movie/' + id + '/videos?' + API_KEY).then((res) => res.json()).then((videoData) => {
@@ -273,7 +273,6 @@ function openNav(movie) {
     });
 }
 
-/* Close when someone clicks on the "x" symbol inside the overlay */
 function closeNav() {
     document.getElementById('myNav').style.width = '0%';
 }
